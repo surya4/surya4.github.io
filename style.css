@@ -1,0 +1,68 @@
+body, html {
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+}
+
+.container {
+  margin:auto;
+  margin-top: 2%;
+}
+
+.container,.header_inner,.notable_mentions,.three,.last_one,.last_two,.last_three {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header_logo {
+  max-height: 72px;
+  min-height: 36px;
+}
+
+/* header */
+
+.name, .ninja {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.horiz_line {
+  background: #79A;
+  border: 0;
+  height: 3px;
+  margin-bottom: 0;
+}
+
+/* fonts */
+
+.name, .ninja {
+  text-align: right;
+}
+
+.name, .featured_work, .info {
+  font-size: 1.5em;
+}
+
+.ninja, .link {
+  font-size: 0.45em;
+}
+
+.featured_work {
+  color: #79A;
+  margin-left: 1%;
+}
+
+.name, .ninja, .info, .link {
+  color: #344;
+}
+
+.info, .link {
+  text-align: center;
+}
+
+.name {
+  font-weight: bold;;
+}
+
+.ninja, .featured_work, .info, .link {
+  font-weight: bold;
+}
