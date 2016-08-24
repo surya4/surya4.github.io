@@ -41,3 +41,8 @@ Live project is available at : surya/surya.github.io/views/pizza.html
 
 ```
 * removed unnecessary JS operations from main.min.js
+
+## Google PageSpeed Score after fixes
+
+(readme_images/mobile.png)
+(readme_images/desktop.png)
