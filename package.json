@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "optimization",
   "main": "index.html",
-  "dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-responsive-images": "^0.1.9"
+    "grunt-contrib-imagemin": "^1.0.1",
+    "imagemin": "^4.0.0",
+    "imagemin-mozjpeg": "^6.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

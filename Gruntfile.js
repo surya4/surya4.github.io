@@ -1,31 +1,44 @@
 module.exports = function(grunt) {
+grunt.initConfig({
+  imagemin: {
+    png: {
+      options: {
+        optimizationLevel: 7
+      },
+      files: [
+        {
+          // Set to true to enable the following options…
+          expand: true,
+          // cwd is 'current working directory'
+          cwd: 'img/',
+          src: ['**/*.png'],
+          // Could also match cwd line above. i.e. project-directory/img/
+          dest: 'img/compressed/',
+          ext: '.png'
+        }
+      ]
+    },
+    jpg: {
+      options: {
+        progressive: true
+      },
+      files: [
+        {
+          // Set to true to enable the following options…
+          expand: true,
+          // cwd is 'current working directory'
+          cwd: 'img/',
+          src: ['**/*.jpg'],
+          // Could also match cwd. i.e. project-directory/img/
+          dest: 'img/compressed/',
+          ext: '.jpg'
+        }
+      ]
+    }
+  }
+});
 
-    grunt.initConfig({
-        // resize images from pizza
-        responsive_images: {
-                    main: {
-                        options: {
-                            engine: 'im',
-                            sizes: [{
-                                width: 100
-                            }, {
-                                width: 720
-                            }]
-                        },
-                        files: [{
-                            expand: true,
-                            src: ['*.{gif,jpg,png,jpeg}'],
-                            cwd: 'views/images/',
-                            dest: 'views/images/grunt-image/'
-                        }]
-                    }
-                }
-    });
+grunt.loadNpmTasks('grunt-contrib-imagemin');
+grunt.registerTask('default', ['imagemin']);
 
-    grunt.loadNpmTasks('grunt-responsive-images');
-
-    // Where we tell Grunt what to do when we type "grunt" into the terminal
-    grunt.registerTask('default', [
-        'responsive_images'
-    ]);
 };
