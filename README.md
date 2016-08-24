@@ -1,12 +1,12 @@
 ## Udacity Project 4: Website Performance Optimization
 
-Live project is available at : surya/surya.github.io/views/pizza.html
+Live project is available at : surya.github.io
 
 #### How to run
 
 1. Clone this repository to run in local machine:
 ```html
-       $ git clone https://surya/surya.github.io
+       $ git clone surya.github.io
 ```
 2. Launch a local server:
 ```html
