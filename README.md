@@ -1,6 +1,6 @@
 ## Udacity Project 4: Website Performance Optimization
 
-Live project is available at : surya.github.io
+Live project is available at : **surya.github.io**
 
 #### How to run
 
