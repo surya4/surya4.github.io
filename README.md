@@ -20,9 +20,10 @@ Live project is available at : **surya.github.io**
 #### Part 1: Optimize PageSpeed Insights score for index.html
 * Minify CSS and JS files : all CSS and JS files were minified to make downloading faster.They are saved with .min in their names The original-formatted files are still present in their respective directories.
 * Made images repsonsive with two diferent sizes
-* Added backface-visibility property in .mover class of style.min.css
+* Added backface-visibility and transform property in .mover class (line 32) of style.min.css
 ```html
        backface-visibility : hidden;
+       transform: translateZ(0);
 ```
 * Reduced no. of pizzas in main.min.js from 200 to 20
 * added async in JS/CSS files of index.html
@@ -41,7 +42,40 @@ Live project is available at : **surya.github.io**
 
 ```
 * removed unnecessary JS operations from main.min.js
+* used document.getElementById() over document.querySelector()
+```html
+var pizzaSelect = document.getElementById("#pizzaSize"); at 423
+and var windowwidth = document.getElementById("#randomPizzas").offsetWidth;
+444
+document.getElementById("movingPizzas1").appendChild(elem); at 584
+```
+* document.getElementsByClassName() replaced document.querySelectorAll();
+```html
+var pizzaContainers = document.getElementsByClassName("randomPizzaContainer"); at 468
+and
+var items = document.getElementsByClassName('mover'); at 550
 
+```
+* given code brought outside loop at 494
+```html
+var pizzasDiv = document.getElementById("randomPizzas");
+```
+* items.length is replaced by len = <array>.length at 553
+
+* no of pizza is reduced to 24 :     
+```html
+var s = 192;
+    for (var i = 0; i < 24; i++) {
+```      
+* following code moved out of loop
+```html
+var movePizza = document.getElementById("#movingPizzas1"); at 577
+var elem; at 576
+```
+* typo fixed in index.html
+```html
+  <link rel='preload' href='css/style.min.css' onload='requestAnimationFrame(() => this.rel="stylesheet")'>
+```
 ## Google PageSpeed Score after fixes
 
 ![mobile image](readme_images/mobile.png)
