@@ -21,9 +21,9 @@ Live project is available at : surya/surya.github.io/views/pizza.html
 * Minify CSS and JS files : all CSS and JS files were minified to make downloading faster.They are saved with .min in their names The original-formatted files are still present in their respective directories.
 * Made images repsonsive with two diferent sizes
 * Added backface-visibility property in .mover class of style.min.css
-
-       $ backface-visibility : hidden;
-
+```html
+       backface-visibility : hidden;
+```
 * Reduced no. of pizzas in main.min.js from 200 to 20
 * added async in JS/CSS files of index.html
 * moved GoogleAnalyticsObject to footer of index.html
