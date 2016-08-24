@@ -44,5 +44,5 @@ Live project is available at : surya/surya.github.io/views/pizza.html
 
 ## Google PageSpeed Score after fixes
 
-(readme_images/mobile.png)
-(readme_images/desktop.png)
+![mobile image](readme_images/mobile.png)
+![desktop image](readme_images/desktop.png)
