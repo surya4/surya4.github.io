@@ -45,8 +45,7 @@ Live project is available at : **surya.github.io**
 * used document.getElementById() over document.querySelector()
 ```html
 var pizzaSelect = document.getElementById("#pizzaSize"); at 423
-and var windowwidth = document.getElementById("#randomPizzas").offsetWidth;
-444
+and var windowwidth = document.getElementById("#randomPizzas").offsetWidth; at 444
 document.getElementById("movingPizzas1").appendChild(elem); at 584
 ```
 * document.getElementsByClassName() replaced document.querySelectorAll();
@@ -62,11 +61,11 @@ var pizzasDiv = document.getElementById("randomPizzas");
 ```
 * items.length is replaced by len = <array>.length at 553
 
-* no of pizza is reduced to 24 :     
+* no of pizza is reduced to 24 :
 ```html
 var s = 192;
     for (var i = 0; i < 24; i++) {
-```      
+```
 * following code moved out of loop
 ```html
 var movePizza = document.getElementById("#movingPizzas1"); at 577
