@@ -68,9 +68,23 @@
   })();
   </script>
 
-<link rel="stylesheet" href="css/style.min.css" type="text/css" media="screen">
+
 <link rel="stylesheet" href="css/print.min.css" type="text/css" media="screen">
 
+<script>
+var head = document.getElementsByTagName('head');
+var element = document.createElement('link');
+element.rel = 'stylesheet';
+element.type = 'text/css';
+element.href = '/css/style.min.css';
+
+//here's the magic
+element.media = 'non-existant-media';
+head.appendChild(element, head.firstChild);
+setTimeout(function () {
+    element.media = 'all';
+});
+</script>
   <script async src="js/perfmatters.min.js"></script>
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
