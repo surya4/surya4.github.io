@@ -75,6 +75,16 @@ var elem; at 576
 ```html
   <link rel='preload' href='css/style.min.css' onload='requestAnimationFrame(() => this.rel="stylesheet")'>
 ```
+# New changes
+
+* load through Java script in index.html at line : 70
+```html
+<script async type="text/javascript" >
+  if (!document.getElementById) document.write('<link rel="stylesheet" type="text/css" href="css/style.min.css">');
+  if (!document.getElementById) document.write('<link rel="stylesheet" type="text/css" href="css/print.min.css">');
+</script>
+```
+
 ## Google PageSpeed Score after fixes
 
 ![mobile image](readme_images/mobile.png)
