@@ -78,28 +78,8 @@ var elem; at 576
 * load through Java script in index.html at line : 70
 ```html
 <script async type="text/javascript" >
-var head = document.getElementsByTagName('head');
-var element = document.createElement('link');
-element.rel = 'stylesheet';
-element.type = 'text/css';
-element.href = '/css/style.min.css';
-element.media = 'non-existant-media';
-head.appendChild(element, head.firstChild);
-setTimeout(function () {
-    element.media = 'all';
-});
-</script>
-<script async type="text/javascript" >
-var head = document.getElementsByTagName('head');
-var element = document.createElement('link');
-element.rel = 'stylesheet';
-element.type = 'text/css';
-element.href = '/css/print.min.css';
-element.media = 'non-existant-media';
-head.appendChild(element, head.firstChild);
-setTimeout(function () {
-    element.media = 'all';
-});
+  if (!document.getElementById) document.write('<link rel="stylesheet" type="text/css" href="css/style.min.css">');
+  if (!document.getElementById) document.write('<link rel="stylesheet" type="text/css" href="css/print.min.css">');
 </script>
 ```
 
