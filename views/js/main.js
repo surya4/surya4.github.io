@@ -550,7 +550,7 @@ function updatePositions() {
     var items = document.getElementsByClassName('mover');
     var currentScrollY = latestKnownScrollY / 1250;
     var phase;
-    var len = array.length;
+    var len = items.length;
     for (var i = 0; i < len; i++) {
         // #optimize: insert currentScrollY variable
         phase = Math.sin(currentScrollY + (i % 5));
