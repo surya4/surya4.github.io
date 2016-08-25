@@ -85,6 +85,24 @@ var elem; at 576
 </script>
 ```
 
+* tried to optimize it
+```html
+for (var i = 0; i < bgPizzasToGen; i++) {
+  var  elem = document.createElement('img');
+  var left = (i % cols) * s;
+    elem.className = 'mover';
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
+    elem.style.left = left + 'px';
+    elem.basicLeft = left;
+    elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    document.getElementById("movingPizzas1").appendChild(elem);
+}
+updatePositions();
+});
+```
+
 ## Google PageSpeed Score after fixes
 
 ![mobile image](readme_images/mobile.png)
