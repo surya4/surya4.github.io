@@ -100,6 +100,12 @@ for (var i = 0; i < bgPizzasToGen; i++) {
 updatePositions();
 });
 ```
+* rectified mistake present at 553 in main.js
+
+```html
+    var len = items.length;
+```
+
 
 ## Google PageSpeed Score after fixes
 
