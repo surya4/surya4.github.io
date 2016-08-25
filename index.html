@@ -68,7 +68,7 @@
   })();
   </script>
 
-  <link rel=stylesheet href="css/print.min.css" type="text/css" media=screen>
+
   <script async>
   var cb=function(){var e=document.createElement("link");e.rel="stylesheet";
   e.href="css/style.min.css";var t=document.getElementsByTagName("head")[0];
@@ -76,6 +76,15 @@
   var raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;
   if(raf)raf(cb);else window.addEventListener("load",cb)
 </script>
+
+<script async>
+var cb=function(){var e=document.createElement("link");e.rel="stylesheet";
+e.href="css/print.min.css";var t=document.getElementsByTagName("head")[0];
+t.parentNode.insertBefore(e,t)};
+var raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;
+if(raf)raf(cb);else window.addEventListener("load",cb)
+</script>
+
   <script async src="js/perfmatters.min.js"></script>
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
