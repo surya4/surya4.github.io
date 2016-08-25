@@ -31,8 +31,6 @@ Live project is available at : **surya.github.io**
 * Move render blocking css/js to the footer
 ```html
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
-    <link async href="css/print.min.css" rel="stylesheet">
     <script async src="js/perfmatters.js"></script>
 ```
 * force Analytics and JS script to load asynchronously
@@ -80,8 +78,28 @@ var elem; at 576
 * load through Java script in index.html at line : 70
 ```html
 <script async type="text/javascript" >
-  if (!document.getElementById) document.write('<link rel="stylesheet" type="text/css" href="css/style.min.css">');
-  if (!document.getElementById) document.write('<link rel="stylesheet" type="text/css" href="css/print.min.css">');
+var head = document.getElementsByTagName('head');
+var element = document.createElement('link');
+element.rel = 'stylesheet';
+element.type = 'text/css';
+element.href = '/css/style.min.css';
+element.media = 'non-existant-media';
+head.appendChild(element, head.firstChild);
+setTimeout(function () {
+    element.media = 'all';
+});
+</script>
+<script async type="text/javascript" >
+var head = document.getElementsByTagName('head');
+var element = document.createElement('link');
+element.rel = 'stylesheet';
+element.type = 'text/css';
+element.href = '/css/print.min.css';
+element.media = 'non-existant-media';
+head.appendChild(element, head.firstChild);
+setTimeout(function () {
+    element.media = 'all';
+});
 </script>
 ```
 
