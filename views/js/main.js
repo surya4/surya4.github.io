@@ -550,7 +550,8 @@ function updatePositions() {
     var items = document.getElementsByClassName('mover');
     var currentScrollY = latestKnownScrollY / 1250;
     var phase;
-    for (var i = 0; len = <array>.length;i < len; i++) {
+    var len = array.length;
+    for (var i = 0; i < len; i++) {
         // #optimize: insert currentScrollY variable
         phase = Math.sin(currentScrollY + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
