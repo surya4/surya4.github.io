@@ -67,8 +67,10 @@
     s.parentNode.insertBefore(wf, s);
   })();
   </script>
-<!-- load style.css -->
-<script >
+
+
+<!-- load style.ccs -->
+<script>
 var head = document.getElementsByTagName('head');
 var element = document.createElement('link');
 element.rel = 'stylesheet';
@@ -81,21 +83,8 @@ setTimeout(function () {
 });
 </script>
 
-<!-- load print.css -->
-<script >
-var head = document.getElementsByTagName('head');
-var element = document.createElement('link');
-element.rel = 'stylesheet';
-element.type = 'text/css';
-element.href = '/css/print.min.css';
-element.media = 'non-existant-media';
-head.appendChild(element, head.firstChild);
-setTimeout(function () {
-    element.media = 'all';
-});
-</script>
+<link rel="stylesheet" href="css/print.min.css" type="text/css" media="screen">
 
-</script>
   <script async src="js/perfmatters.min.js"></script>
     <script>
       (function(w,g){w['GoogleAnalyticsObject']=g;
