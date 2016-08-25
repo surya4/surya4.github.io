@@ -106,7 +106,7 @@ updatePositions();
     var len = items.length;
 ```
 
-* Added render.js to optimize speed and passed both css files to render.js
+* inlined all the css
 
 
 ## Google PageSpeed Score after fixes
