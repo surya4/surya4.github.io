@@ -50,13 +50,13 @@ var Location = function(data) {
         var results = data.response.venues[0];
         self.URL = results.url;
         if (typeof self.URL === 'undefined') {
-            self.URL = "abcd.xyz.io";
+            self.URL = "";
         }
         self.street = results.location.formattedAddress[0];
         self.city = results.location.formattedAddress[1];
         self.phone = results.contact.phone;
         if (typeof self.phone === 'undefined') {
-            self.phone = "1234567890";
+            self.phone = "";
         }
     }).fail(function() {
         alert("There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.");
