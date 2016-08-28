@@ -37,6 +37,7 @@ width: 35%;
 .place {
   list-style: none;
   padding: 10px;
+  font-weight: bold;
 }
 
 #map{
