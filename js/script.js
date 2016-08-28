@@ -29,7 +29,7 @@ var initialLocations = [{
     long: 77.6277269
 }, ];
 
-
+// setting up data for info Window
 var Location = function(data) {
     var self = this;
     this.name = data.name;
@@ -41,6 +41,8 @@ var Location = function(data) {
     this.phone = "";
 
     this.visible = ko.observable(true);
+
+// set up foursquare url
 
     var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll=' +
         this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret +
@@ -61,6 +63,8 @@ var Location = function(data) {
     }).fail(function() {
         alert("There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.");
     });
+
+// pass data to contentString
 
     this.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
         '<div class="content"><a href="' + self.URL + '">' + self.URL + "</a></div>" +
@@ -86,6 +90,8 @@ var Location = function(data) {
         }
         return true;
     }, this);
+
+
 
     this.marker.addListener('click', function() {
         self.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
@@ -116,6 +122,8 @@ function AppViewModel() {
 
     this.locationList = ko.observableArray([]);
 
+
+// hard set location of map
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 18,
         center: {
@@ -153,9 +161,13 @@ function AppViewModel() {
     this.mapElem.style.height = window.innerHeight - 50;
 }
 
+// initialize app
+
 function startApp() {
     ko.applyBindings(new AppViewModel());
 }
+
+// exception handling
 
 function errorHandling() {
     alert("Google Maps has failed to load. Please check your internet connection and try again.");
