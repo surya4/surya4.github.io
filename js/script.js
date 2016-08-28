@@ -132,8 +132,8 @@ function AppViewModel() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 18,
         center: {
-            lat: 12.938533,
-            lng: 77.630817
+            lat: 12.9382328,
+            lng: 77.6289805
         }
     });
 
