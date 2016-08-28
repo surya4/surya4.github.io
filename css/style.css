@@ -13,8 +13,10 @@ body {
 }
 
 #search-box {
-	height: 10%;
+	height: 13%;
   width: 80%;
+  padding-left:1%;
+  padding-right: 1%;
 	font-size: 1em;
 }
 
