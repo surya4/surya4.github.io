@@ -4,11 +4,11 @@ var clientSecret;
 var markers = [];
 
 var initialLocations = [
-  {title: 'Oasis Center', location: {lat: 12.9375433,lng: 77.6280165}},
-  {title: 'Barleyz', location: {lat: 12.9376218,lng: 77.6269792}},
-  {title: 'HDFC Bank ATM', location: {lat: 12.9386243,lng: 77.6304922}},
-  {title: 'Food Affairs', location: {lat: 12.9383949,lng: 77.6304051}},
-  {title: 'Bak Bak Bar', location: {lat: 12.9380433,lng: 77.6277269}},
+  {name: 'Oasis Center', lat: 12.9375433,long: 77.6280165},
+  {name: 'Barleyz', lat: 12.9376218,long: 77.6269792},
+  {name: 'HDFC Bank ATM', lat: 12.9386243,long: 77.6304922},
+  {name: 'Food Affairs', lat: 12.9383949,long: 77.6304051},
+  {name: 'Bak Bak Bar', lat: 12.9380433,long: 77.6277269},
 ];
 
 function formatPhone(phonenum) {
@@ -28,9 +28,9 @@ function formatPhone(phonenum) {
 
 var Location = function(data) {
 	var self = this;
-	this.name = data.location.name;
-	this.lat = data.location.lat;
-	this.long = data.location.long;
+	this.name = data.name;
+	this.lat = data.lat;
+	this.long = data.long;
 	this.URL = "";
 	this.street = "";
 	this.city = "";
@@ -38,7 +38,9 @@ var Location = function(data) {
 
 	this.visible = ko.observable(true);
 
-	var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll='+ this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20160118' + '&query=' + this.name;
+	var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll='+
+  this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret +
+  '&v=20140806' + '&query=' + this.name;
 
 	$.getJSON(foursquareURL).done(function(data) {
 		var results = data.response.venues[0];
@@ -67,7 +69,7 @@ var Location = function(data) {
 	this.infoWindow = new google.maps.InfoWindow({content: self.contentString});
 
 	this.marker = new google.maps.Marker({
-			position: new google.maps.LatLng(data.lat, data.long),
+			position: new google.maps.Latlong(data.lat, data.long),
 			map: map,
 			title: data.name
 	});
@@ -112,7 +114,7 @@ function AppViewModel() {
 
 	map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 12,
-			center: {lat: 12.938533, lng: 77.630817}
+			center: {lat: 12.938533, long: 77.630817}
 	});
 
 	// Foursquare API settings
