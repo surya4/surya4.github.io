@@ -130,7 +130,7 @@ function AppViewModel() {
     this.locationList = ko.observableArray([]);
 
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
+        zoom: 17,
         center: {
             lat: 12.938533,
             lng: 77.630817
