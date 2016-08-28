@@ -13,11 +13,12 @@ body {
 }
 
 #search-box {
-	height: 10%;
-  width: 97%;
+	height: 7.7%;
+  width: 96.5%;
   padding-left:1%;
 	font-size: 1em;
-  align
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
 }
 
 .app{
