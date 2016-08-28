@@ -29,21 +29,6 @@ var initialLocations = [{
     long: 77.6277269
 }, ];
 
-function formatPhone(phonenum) {
-    var regexObj = /^(?:\+?1[-. ]?)?(?:\(?([0-9]{3})\)?[-. ]?)?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if (regexObj.test(phonenum)) {
-        var parts = phonenum.match(regexObj);
-        var phone = "";
-        if (parts[1]) {
-            phone += "+1 (" + parts[1] + ") ";
-        }
-        phone += parts[2] + "-" + parts[3];
-        return phone;
-    } else {
-        //invalid phone number
-        return phonenum;
-    }
-}
 
 var Location = function(data) {
     var self = this;
@@ -70,11 +55,7 @@ var Location = function(data) {
         self.street = results.location.formattedAddress[0];
         self.city = results.location.formattedAddress[1];
         self.phone = results.contact.phone;
-        if (typeof self.phone === 'undefined') {
-            self.phone = "";
-        } else {
-            self.phone = formatPhone(self.phone);
-        }
+      
     }).fail(function() {
         alert("There was an error with the Foursquare API call. Please refresh the page and try again to load Foursquare data.");
     });
