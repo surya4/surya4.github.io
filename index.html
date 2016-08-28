@@ -13,12 +13,15 @@
 <div class="search">
 <h2>Neighbourhood App</h2>
 <hr>
+<input class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
 </div>
   <!-- shows search box and map -->
 <div class="app">
     <!-- search box and description -->
   <div class="list">
-
+    <ul class="results" id="results" data-bind="foreach: filteredList">
+    				<li class="place" id="place" data-bind="text: name, click: bounce"></li>
+    			</ul>
   </div>
   <!-- map -->
   <div id="map">
@@ -26,10 +29,10 @@
   </div>
 </div>
 
-<script src='js/knockout.min.js'></script>
+<script src='js/knockout.js'></script>
 	<script src='js/jquery.min.js'></script>
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIa2Acp4uLWi7uPQ68UhbU1H0r3eGR1g&v=3&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIa2Acp4uLWi7uPQ68UhbU1H0r3eGR1g&v=3&callback=startApp&libraries=places" onerror="errorHandling()">
 </script>
 <script src='js/script.js'></script>
   </body>
