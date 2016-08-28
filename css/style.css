@@ -14,11 +14,10 @@ body {
 
 #search-box {
 	height: 13%;
-  width: 80%;
+  width: 35%;
   padding-left:1%;
-  padding-right: 1%;
 	font-size: 1em;
-  align-items: center;
+  align
 }
 
 .app{
