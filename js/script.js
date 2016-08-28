@@ -133,7 +133,7 @@ function AppViewModel() {
         zoom: 12,
         center: {
             lat: 12.938533,
-            long: 77.630817
+            lng: 77.630817
         }
     });
 
