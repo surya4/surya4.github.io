@@ -13,12 +13,13 @@
 <div class="search">
 <h2>Neighbourhood App</h2>
 <hr>
-<input class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
+
 </div>
   <!-- shows search box and map -->
 <div class="app">
     <!-- listing and description -->
   <div class="list">
+    <input class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
     <ul class="results" id="results" data-bind="foreach: filteredList">
     				<li class="place" id="place" data-bind="text: name, click: bounce"></li>
     			</ul>
