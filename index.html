@@ -9,7 +9,7 @@
 
   </head>
   <body>
-  <!-- shows app name-->
+  <!-- shows app name and search box-->
 <div class="search">
 <h2>Neighbourhood App</h2>
 <hr>
@@ -17,7 +17,7 @@
 </div>
   <!-- shows search box and map -->
 <div class="app">
-    <!-- search box and description -->
+    <!-- listing and description -->
   <div class="list">
     <ul class="results" id="results" data-bind="foreach: filteredList">
     				<li class="place" id="place" data-bind="text: name, click: bounce"></li>
@@ -28,11 +28,11 @@
 
   </div>
 </div>
-
+<!-- asynce and defere use to optimize the page -->
 <script src='js/knockout-3.4.0.js'></script>
 	<script src='js/jquery.min.js'></script>
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIa2Acp4uLWi7uPQ68UhbU1H0r3eGR1g&callback=startApp&libraries=places" onerror="errorHandling()"></script>  
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIa2Acp4uLWi7uPQ68UhbU1H0r3eGR1g&callback=startApp&libraries=places" onerror="errorHandling()"></script>
 <script src='js/script.js'></script>
   </body>
 </html>
