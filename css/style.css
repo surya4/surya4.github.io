@@ -32,7 +32,10 @@ padding-top: 1%;
 .list{
 height: 100%;
 width: 35%;
-list-style: none;
+}
+
+.place {
+  list-style: none;
 }
 
 #map{
