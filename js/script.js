@@ -69,7 +69,7 @@ var Location = function(data) {
 	this.infoWindow = new google.maps.InfoWindow({content: self.contentString});
 
 	this.marker = new google.maps.Marker({
-			position: new google.maps.Latlong(data.lat, data.long),
+			position: new google.maps.Latlng(data.lat, data.long),
 			map: map,
 			title: data.name
 	});
