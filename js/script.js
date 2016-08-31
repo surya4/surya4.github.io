@@ -118,15 +118,16 @@ function AppViewModel() {
         var filter = self.searchItem().toLowerCase().trim();
         var fileteredArr = [];
         self.locationList().forEach(function(locationItem) {
-          if(filter && locationItem.name.toLowerCase().search(filter) >= 0) {
+          if(!filter) {
+            locationItem.visible(true);
+            fileteredArr.push(locationItem);
+          } else if(locationItem.name.toLowerCase().search(filter) >= 0) {
             locationItem.visible(true);
             fileteredArr.push(locationItem);
           } else {
             locationItem.visible(false);
-            if(!filter) {
-              fileteredArr.push(locationItem);
-            }
           }
+
         });
         return fileteredArr;
 
