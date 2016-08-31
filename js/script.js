@@ -1,5 +1,5 @@
 // global variable declaration
-
+'use strict';
 var map;
 var markers = [];
 var fs = 'https://api.foursquare.com/v2/venues/search?client_id=' +
@@ -13,6 +13,7 @@ function initMap() {
         center: new google.maps.LatLng(12.9382328, 77.6289805)
     };
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    console.log("calling apply bindings");
     ko.applyBindings(new AppViewModel());
 }
 
@@ -42,6 +43,7 @@ var placeArray = [{
 
 // setting up data for info Window
 var Location = function(data) {
+    var filteredList = placeArray;
     var self = this;
     this.name = data.name;
     this.lat = data.lat;
@@ -51,17 +53,17 @@ var Location = function(data) {
     this.phone = "";
     this.visible = ko.observable(true);
 
-// set up foursquare url
+    // set up foursquare url
 
-var fsurl = fs +
-    '&v=20140806' + '&ll=' + data.lat + ',' +
-    data.long + '&query=\'' + data.name + '\'&limit=1';
+    var fsurl = fs +
+        '&v=20140806' + '&ll=' + data.lat + ',' +
+        data.long + '&query=\'' + data.name + '\'&limit=1';
 
     $.getJSON(fsurl).done(function(data) {
         var results = data.response.venues[0];
         self.URL = results.url;
         self.address = results.location.formattedAddress[0] +
-                       results.location.formattedAddress[1];
+            results.location.formattedAddress[1];
         self.phone = results.contact.phone;
     });
 
@@ -104,33 +106,39 @@ var fsurl = fs +
 
 function AppViewModel() {
     var self = this;
-    this.searchItem = ko.observable("");
-    this.locationList = ko.observableArray([]);
+    self.locationList = ko.observableArray([]);
 
     placeArray.forEach(function(locationItem) {
         self.locationList.push(new Location(locationItem));
     });
 
-    this.filteredList = ko.computed(function() {
-        var filter = self.searchItem().toLowerCase();
-        if (!filter) {
-            self.locationList().forEach(function(locationItem) {
-                locationItem.visible(true);
-            });
-            return self.locationList();
-        } else {
-            return ko.utils.arrayFilter(self.locationList(), function(locationItem) {
-                var string = locationItem.name.toLowerCase();
-                var result = (string.search(filter) >= 0);
-                locationItem.visible(result);
-                return result;
-            });
-        }
+    self.searchItem = ko.observable("");
+
+    self.filteredList = this.filteredList = ko.computed(function() {
+        var filter = self.searchItem().toLowerCase().trim();
+        var fileteredArr = [];
+        self.locationList().forEach(function(locationItem) {
+          if(filter && locationItem.name.toLowerCase().search(filter) >= 0) {
+            locationItem.visible(true);
+            fileteredArr.push(locationItem);
+          } else {
+            locationItem.visible(false);
+            if(!filter) {
+              fileteredArr.push(locationItem);
+            }
+          }
+        });
+        return fileteredArr;
+
     }, self);
+
+    //self.filteredList();
+
 }
 
+// initialize app
 // exception handling
 
 function googleError() {
-    alert("Google Maps has failed to load. Please check your internet connection and try again.");
+    alert("Page has failed to load. Please check your internet connection and try again.");
 }
