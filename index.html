@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Neighbourhood App</title>
     <link rel="stylesheet" href="css/style.css" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  </head>
-  <body>
-  <!-- shows app name and search box-->
-<div class="search">
-<h2>Neighbourhood App</h2>
-<hr>
-</div>
+</head>
 
-<div class="app">
-    <!-- listing and description -->
-  <div class="list">
-    <input class="search-box" id="search-box" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'" />
-    <ul class="results" id="results" data-bind="foreach: filteredList">
-    				<li class="place" id="place" data-bind="text: name, click: bounce"></li>
-    			</ul>
-  </div>
-  <!-- map -->
-  <div id="map">
-  </div>
-</div>
-<!-- asynce and defere use to optimize the page -->
-<script src='js/knockout-3.4.0.js'></script>
-	<script src='js/jquery.min.js'></script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIa2Acp4uLWi7uPQ68UhbU1H0r3eGR1g&callback=initMap&libraries=places" onerror="errorHandling()"></script>
-<script src='js/script.js'></script>
-  </body>
+<body>
+    <!-- shows app name and search box-->
+    <div class="search">
+        <h2>Neighbourhood App</h2>
+        <hr>
+    </div>
+
+    <div class="app">
+        <!-- listing and description -->
+        <div class="list">
+            <input class="search-box" id="search-box" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'" />
+            <ul class="results" id="results" data-bind="foreach: filteredList">
+                <li class="place" id="place" data-bind="text: name, click: bounce"></li>
+            </ul>
+        </div>
+        <!-- map -->
+        <div id="map">
+        </div>
+    </div>
+    <!-- asynce and defere use to optimize the page -->
+    <script src='js/knockout-3.4.0.js'></script>
+    <script src='js/jquery.min.js'></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIa2Acp4uLWi7uPQ68UhbU1H0r3eGR1g&callback=initMap&libraries=places" onerror="errorHandling()"></script>
+    <script src='js/script.js'></script>
+</body>
+
 </html>

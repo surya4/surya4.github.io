@@ -41,13 +41,13 @@ var placeArray = [{
     long: 77.6277269
 }];
 
-// setting up data for info Window
-var Location = function(data) {
+// setting up value for info Window
+var Attributes = function(value) {
     var filteredList = placeArray;
     var self = this;
-    this.name = data.name;
-    this.lat = data.lat;
-    this.long = data.long;
+    this.name = value.name;
+    this.lat = value.lat;
+    this.long = value.long;
     this.URL = "";
     this.address = this.street + this.city;
     this.phone = "";
@@ -56,11 +56,11 @@ var Location = function(data) {
     // set up foursquare url
 
     var fsurl = fs +
-        '&v=20140806' + '&ll=' + data.lat + ',' +
-        data.long + '&query=\'' + data.name + '\'&limit=1';
+        '&v=20140806' + '&ll=' + value.lat + ',' +
+        value.long + '&query=\'' + value.name + '\'&limit=1';
 
-    $.getJSON(fsurl).done(function(data) {
-        var results = data.response.venues[0];
+    $.getJSON(fsurl).done(function(value) {
+        var results = value.response.venues[0];
         self.URL = results.url;
         self.address = results.location.formattedAddress[0] +
             results.location.formattedAddress[1];
@@ -72,9 +72,9 @@ var Location = function(data) {
     });
 
     this.marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.lat, data.long),
+        position: new google.maps.LatLng(value.lat, value.long),
         map: map,
-        title: data.name
+        title: value.name
     });
 
     this.showMarker = ko.computed(function() {
@@ -89,7 +89,7 @@ var Location = function(data) {
 
 
     this.marker.addListener('click', function() {
-        self.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
+        self.contentString = '<div class="info-window-content"><div class="title"><b>' + value.name + "</b></div>" +
             '<div class="content"><a href="' + self.URL + '">' + self.URL + "</a></div>" +
             '<div class="content">' + self.address + "</div>" +
             '<div class="content"><a href="tel:' + self.phone + '">' + self.phone + "</a></div></div>";
@@ -109,7 +109,7 @@ function AppViewModel() {
     self.locationList = ko.observableArray([]);
 
     placeArray.forEach(function(locationItem) {
-        self.locationList.push(new Location(locationItem));
+        self.locationList.push(new Attributes(locationItem));
     });
 
     self.searchItem = ko.observable("");
