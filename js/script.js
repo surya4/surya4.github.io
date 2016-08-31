@@ -1,24 +1,26 @@
 // global variable declaration
 'use strict';
 var map;
-var markers = [];
+
+// spliting up the foursquare url
 var fs = 'https://api.foursquare.com/v2/venues/search?client_id=' +
     'RXTKNR13PAJ1HTJ5C0S5G0FR4OANS3A3XFWNLIGDGNN3Q0VX' +
     '&client_secret=OZSMXEMARDPACMGMTUEXHVGLG1QDD123JB4TLHD0SYYCKFP0';
-// initialize map
 
+// initialize map
 function initMap() {
     var mapOptions = {
         zoom: 18,
+        // center long and lat. of map
         center: new google.maps.LatLng(12.9382328, 77.6289805)
     };
+    // calling map
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
     console.log("calling apply bindings");
     ko.applyBindings(new AppViewModel());
 }
 
 // listing to be displayed
-
 var placeArray = [{
     name: 'Oasis Center',
     lat: 12.9375433,
@@ -51,14 +53,14 @@ var Attributes = function(value) {
     this.URL = "";
     this.address = this.street + this.city;
     this.phone = "";
-    this.visible = ko.observable(true);
+    this.visibleMarker = ko.observable(true);
 
     // set up foursquare url
-
     var fsurl = fs +
         '&v=20140806' + '&ll=' + value.lat + ',' +
         value.long + '&query=\'' + value.name + '\'&limit=1';
 
+// puuling up data from foursquareURL
     $.getJSON(fsurl).done(function(value) {
         var results = value.response.venues[0];
         self.URL = results.url;
@@ -66,19 +68,22 @@ var Attributes = function(value) {
             results.location.formattedAddress[1];
         self.phone = results.contact.phone;
     });
-
+// passing content to the infoWindow
     this.infoWindow = new google.maps.InfoWindow({
         content: self.contentString
     });
 
+// setting up marker for varioys locations
     this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(value.lat, value.long),
         map: map,
         title: value.name
     });
 
-    this.showMarker = ko.computed(function() {
-        if (this.visible() === true) {
+// making condition with marker so make it visible only when items
+// particular keyword are selected
+    this.filterMarker = ko.computed(function() {
+        if (this.visibleMarker() === true) {
             this.marker.setMap(map);
         } else {
             this.marker.setMap(null);
@@ -87,7 +92,7 @@ var Attributes = function(value) {
     }, this);
 
 
-
+// event creating to pass the content string in info window
     this.marker.addListener('click', function() {
         self.contentString = '<div class="info-window-content"><div class="title"><b>' + value.name + "</b></div>" +
             '<div class="content"><a href="' + self.URL + '">' + self.URL + "</a></div>" +
@@ -99,11 +104,14 @@ var Attributes = function(value) {
         self.infoWindow.open(map, this);
     });
 
-    this.bounce = function(place) {
+// puuling up info window after click on marker
+    this.toggle = function(place) {
         google.maps.event.trigger(self.marker, 'click');
     };
 };
 
+
+// controler or viewmodel of app
 function AppViewModel() {
     var self = this;
     self.locationList = ko.observableArray([]);
@@ -114,18 +122,19 @@ function AppViewModel() {
 
     self.searchItem = ko.observable("");
 
+// creating filter and so finding text on basis of particular text
     self.filteredList = this.filteredList = ko.computed(function() {
         var filter = self.searchItem().toLowerCase().trim();
         var fileteredArr = [];
         self.locationList().forEach(function(locationItem) {
           if(!filter) {
-            locationItem.visible(true);
+            locationItem.visibleMarker(true);
             fileteredArr.push(locationItem);
           } else if(locationItem.name.toLowerCase().search(filter) >= 0) {
-            locationItem.visible(true);
+            locationItem.visibleMarker(true);
             fileteredArr.push(locationItem);
           } else {
-            locationItem.visible(false);
+            locationItem.visibleMarker(false);
           }
 
         });
