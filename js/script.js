@@ -37,13 +37,11 @@ var placeArray = [{
     name: 'Food Affairs',
     lat: 12.9383949,
     long: 77.6304051
-},
-{
+}, {
     name: 'Legends of Rock',
     lat: 12.9390234,
     long: 77.6259692
-},
- {
+}, {
     name: 'Bak Bak Bar',
     lat: 12.9380433,
     long: 77.6277269
@@ -80,37 +78,40 @@ var Attributes = function(value) {
         ) {
             self.address = results.location.formattedAddress[0] + ', ' +
                 results.location.formattedAddress[1];
-        }
-        else if ((results.location.formattedAddress[0] !== null && results.location.formattedAddress[0] !== undefined) &&
+        } else if ((results.location.formattedAddress[0] !== null && results.location.formattedAddress[0] !== undefined) &&
             (results.location.formattedAddress[1] === null || results.location.formattedAddress[1] === undefined)
         ) {
-          self.address = results.location.formattedAddress[0];
-        }
-        else if ((results.location.formattedAddress[1] !== null && results.location.formattedAddress[1] !== undefined) &&
+            self.address = results.location.formattedAddress[0];
+        } else if ((results.location.formattedAddress[1] !== null && results.location.formattedAddress[1] !== undefined) &&
             (results.location.formattedAddress[0] === null || results.location.formattedAddress[0] === undefined)
         ) {
-          self.address = results.location.formattedAddress[1];
+            self.address = results.location.formattedAddress[1];
         }
-        if (results.contact.phone !== null && results.contact.phone !== undefined ) {
+        if (results.contact.phone !== null && results.contact.phone !== undefined) {
             self.phone = results.contact.phone;
         }
         // self.phone = results.contact.phone;
-         console.log(results.contact.phone);
-         if (venue.categories.shortName !== null && venue.categories.shortName !== undefined) {
-          self.category = venue.categories.shortName;
-         }
+        console.log(results.contact.phone);
+        if (venue.categories.shortName !== null && venue.categories.shortName !== undefined) {
+            self.category = venue.categories.shortName;
+        }
     });
     // passing content to the infoWindow
     this.infoWindow = new google.maps.InfoWindow({
         content: self.contentString
     });
 
+
+
     // setting up marker for varioys locations
     this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(value.lat, value.long),
         map: map,
-        title: value.name
+        title: value.name,
+        animation: google.maps.Animation.DROP,
     });
+
+
 
     // making condition with marker so make it visible only when items
     // particular keyword are selected
@@ -132,8 +133,9 @@ var Attributes = function(value) {
             '<div class="content"><a href="tel:' + self.phone + '">' + self.phone + "</a></div></div>";
 
         self.infoWindow.setContent(self.contentString);
-
+        self.marker.setAnimation(google.maps.Animation.BOUNCE);
         self.infoWindow.open(map, this);
+
     });
 
     // puuling up info window after click on marker
