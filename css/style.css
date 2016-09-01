@@ -22,8 +22,7 @@ html, body {
 .list {
     height: 100%;
     width: 35%;
-    display: flex;
-    flex-wrap: wrap;
+    
 }
 .place {
     list-style: none;
