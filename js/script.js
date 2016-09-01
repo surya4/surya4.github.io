@@ -10,7 +10,7 @@ var fs = 'https://api.foursquare.com/v2/venues/search?client_id=' +
 // initialize map
 function initMap() {
     var mapOptions = {
-        zoom: 18,
+        zoom: 17,
         // center long and lat. of map
         center: new google.maps.LatLng(12.9382328, 77.6289805)
     };
@@ -37,7 +37,13 @@ var placeArray = [{
     name: 'Food Affairs',
     lat: 12.9383949,
     long: 77.6304051
-}, {
+},
+{
+    name: 'Legends of Rock',
+    lat: 12.9390234,
+    long: 77.6259692
+},
+ {
     name: 'Bak Bak Bar',
     lat: 12.9380433,
     long: 77.6277269
@@ -52,6 +58,8 @@ var Attributes = function(value) {
     this.long = value.long;
     this.URL = "";
     this.address = this.street + this.city;
+    // this.category = "";
+    // var tempaddress = "";
     this.phone = "";
     this.visibleMarker = ko.observable(true);
 
@@ -60,28 +68,52 @@ var Attributes = function(value) {
         '&v=20140806' + '&ll=' + value.lat + ',' +
         value.long + '&query=\'' + value.name + '\'&limit=1';
 
-// puuling up data from foursquareURL
+    // puuling up data from foursquareURL
     $.getJSON(fsurl).done(function(value) {
         var results = value.response.venues[0];
-        self.URL = results.url;
-        self.address = results.location.formattedAddress[0] +
-            results.location.formattedAddress[1];
-        self.phone = results.contact.phone;
+        if (results.url !== null && results.url !== undefined) {
+            self.URL = results.url;
+        }
+
+        if ((results.location.formattedAddress[0] !== null && results.location.formattedAddress[0] !== undefined) &&
+            (results.location.formattedAddress[1] !== null && results.location.formattedAddress[1] !== undefined)
+        ) {
+            self.address = results.location.formattedAddress[0] + ', ' +
+                results.location.formattedAddress[1];
+        }
+        else if ((results.location.formattedAddress[0] !== null && results.location.formattedAddress[0] !== undefined) &&
+            (results.location.formattedAddress[1] === null || results.location.formattedAddress[1] === undefined)
+        ) {
+          self.address = results.location.formattedAddress[0];
+        }
+        else if ((results.location.formattedAddress[1] !== null && results.location.formattedAddress[1] !== undefined) &&
+            (results.location.formattedAddress[0] === null || results.location.formattedAddress[0] === undefined)
+        ) {
+          self.address = results.location.formattedAddress[1];
+        }
+        if (results.contact.phone !== null && results.contact.phone !== undefined ) {
+            self.phone = results.contact.phone;
+        }
+        // self.phone = results.contact.phone;
+         console.log(results.contact.phone);
+         if (venue.categories.shortName !== null && venue.categories.shortName !== undefined) {
+          self.category = venue.categories.shortName;
+         }
     });
-// passing content to the infoWindow
+    // passing content to the infoWindow
     this.infoWindow = new google.maps.InfoWindow({
         content: self.contentString
     });
 
-// setting up marker for varioys locations
+    // setting up marker for varioys locations
     this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(value.lat, value.long),
         map: map,
         title: value.name
     });
 
-// making condition with marker so make it visible only when items
-// particular keyword are selected
+    // making condition with marker so make it visible only when items
+    // particular keyword are selected
     this.filterMarker = ko.computed(function() {
         if (this.visibleMarker() === true) {
             this.marker.setMap(map);
@@ -92,7 +124,7 @@ var Attributes = function(value) {
     }, this);
 
 
-// event creating to pass the content string in info window
+    // event creating to pass the content string in info window
     this.marker.addListener('click', function() {
         self.contentString = '<div class="info-window-content"><div class="title"><b>' + value.name + "</b></div>" +
             '<div class="content"><a href="' + self.URL + '">' + self.URL + "</a></div>" +
@@ -104,7 +136,7 @@ var Attributes = function(value) {
         self.infoWindow.open(map, this);
     });
 
-// puuling up info window after click on marker
+    // puuling up info window after click on marker
     this.toggle = function(place) {
         google.maps.event.trigger(self.marker, 'click');
     };
@@ -122,20 +154,20 @@ function AppViewModel() {
 
     self.searchItem = ko.observable("");
 
-// creating filter and so finding text on basis of particular text
+    // creating filter and so finding text on basis of particular text
     self.filteredList = this.filteredList = ko.computed(function() {
         var filter = self.searchItem().toLowerCase().trim();
         var fileteredArr = [];
         self.locationList().forEach(function(locationItem) {
-          if(!filter) {
-            locationItem.visibleMarker(true);
-            fileteredArr.push(locationItem);
-          } else if(locationItem.name.toLowerCase().search(filter) >= 0) {
-            locationItem.visibleMarker(true);
-            fileteredArr.push(locationItem);
-          } else {
-            locationItem.visibleMarker(false);
-          }
+            if (!filter) {
+                locationItem.visibleMarker(true);
+                fileteredArr.push(locationItem);
+            } else if (locationItem.name.toLowerCase().search(filter) >= 0) {
+                locationItem.visibleMarker(true);
+                fileteredArr.push(locationItem);
+            } else {
+                locationItem.visibleMarker(false);
+            }
 
         });
         return fileteredArr;
