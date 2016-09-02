@@ -1,6 +1,7 @@
 // global variable declaration
 'use strict';
 var map;
+// var appViewModel;
 
 // spliting up the foursquare url
 var fs = 'https://api.foursquare.com/v2/venues/search?client_id=' +
@@ -16,8 +17,9 @@ function initMap() {
     };
     // calling map
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    console.log("calling apply bindings");
-    ko.applyBindings(new AppViewModel());
+    appViewModel = new AppViewModel();
+//    console.log("calling apply bindings");
+    ko.applyBindings(appViewModel);
 }
 
 // listing to be displayed
@@ -33,13 +35,11 @@ var placeArray = [{
     name: 'Pearson India Education Services ',
     lat: 12.9399321,
     long: 77.6286004
-},
-{
+}, {
     name: 'Shilton Royale ',
     lat: 12.9387769,
     long: 77.629976
-},
- {
+}, {
     name: 'Food Affairs',
     lat: 12.9383949,
     long: 77.6304051
@@ -75,34 +75,34 @@ var Attributes = function(value) {
     // puuling up data from foursquareURL
     $.getJSON(fsurl, function(value) {
         var results = value.response.venues[0];
+        var street = results.location.formattedAddress[0];
+        var city = results.location.formattedAddress[1];
+        var url = self.URL;
+        var tele = self.phone;
+
         if (results.url !== null && results.url !== undefined) {
             self.URL = results.url;
         }
 
-        if ((results.location.formattedAddress[0] !== null && results.location.formattedAddress[0] !== undefined) &&
-            (results.location.formattedAddress[1] !== null && results.location.formattedAddress[1] !== undefined)
-        ) {
-            self.address = results.location.formattedAddress[0] + ', ' +
-                results.location.formattedAddress[1];
-        } else if ((results.location.formattedAddress[0] !== null && results.location.formattedAddress[0] !== undefined) &&
-            (results.location.formattedAddress[1] === null || results.location.formattedAddress[1] === undefined)
-        ) {
-            self.address = results.location.formattedAddress[0];
-        } else if ((results.location.formattedAddress[1] !== null && results.location.formattedAddress[1] !== undefined) &&
-            (results.location.formattedAddress[0] === null || results.location.formattedAddress[0] === undefined)
-        ) {
-            self.address = results.location.formattedAddress[1];
+        if ((street !== null && street !== undefined) &&  (city !== null && city !== undefined)) {
+            self.address = street + ', ' +  city;
+
+        } else if ((street !== null && street !== undefined) &&  (city === null || city === undefined)) {
+             self.address = street;
+            // console.log(self.address);
+        } else if ((city !== null && city !== undefined) &&  (street === null || street === undefined)  ) {
+             self.address = city;
         }
         if (results.contact.phone !== null && results.contact.phone !== undefined) {
             self.phone = results.contact.phone;
         }
         // self.phone = results.contact.phone;
-        console.log(results.contact.phone);
+        // console.log(results.contact.phone);
         // if (venue.categories.shortName !== null && venue.categories.shortName !== undefined) {
         //     self.category = venue.categories.shortName;
         // }
-    }).fail(function(value){
-      alert("Page is not loading. Please check your Internet connection or try it later!");
+    }).fail(function(value) {
+        alert("Page is not loading. Please check your Internet connection or try it later!");
     });
     // passing content to the infoWindow
     this.infoWindow = new google.maps.InfoWindow({
@@ -132,41 +132,52 @@ var Attributes = function(value) {
         return true;
     }, this);
 
-    var url = self.URL;
-      var linkHTML;
-      if (self.URL) {
-        linkHTML = '<a href="' + self.URL + '">' + self.URL + '</a>'
-      } else { linkHTML = 'No link is available.'; }
+    //  var url = self.URL;
+    //   var linkHTML;
+    //   if (url) {
+      //  linkHTML = '<a href="' + self.URL + '">' + self.URL + '</a>';
+//       } else { linkHTML = 'No link is available.'; }
+//
+// console.log(self.URL);
+//       var tele = self.phone;
+//         var teleHTML;
+//         if (tele) {
+        //  teleHTML = '<a href="' + self.phone + '">' + self.phone + '</a>';
+        // } else { teleHTML = 'No phone no. is available.'; }
+
 
     // event creating to pass the content string in info window
     this.marker.addListener('click', function() {
-        self.contentString = '<div class="info-window-content"><div class="title"><b>' + value.name + "</b></div>" +
-            '<div class="content">' + self.address + "</div>" +
-            '<div class="content">' + '<a href="' + self.URL + '">' + self.URL + '</a>' + "</div>" +
-            '<div class="content"><a href="tel:' + self.phone + '">' + self.phone + "</a></div></div>";
 
-        self.infoWindow.setContent(self.contentString);
-        self.marker.setAnimation(google.maps.Animation.BOUNCE);
-        self.infoWindow.open(map, this);
-
+      self.contentString = '<div class="info-window-content"><div class="title"><b>' + value.name + "</b></div>" +
+          '<div class="content">' + self.address + "</div>" +
+          '<div class="content">' + '<a href="' + self.URL + '">' + self.URL + '</a>' + "</div>" +
+          '<div class="content">' + '<a href="' + self.phone + '">' + self.phone + '</a>' + "</div></div>";
+      self.infoWindow.setContent(self.contentString);
+      self.marker.setAnimation(google.maps.Animation.BOUNCE);
+      self.infoWindow.open(map, this);
+      appViewModel.filteredList().forEach(function(place) {
+          place.marker.setAnimation(null);
+        });
     });
 
-    // puuling up info window after click on marker
-    // this.toggle = function(place) {
-    //     google.maps.event.trigger(self.marker, 'click');
-    // };
+    self.infoWindow.addListener('closeclick', function() {
+    self.marker.setAnimation(null);
+});
+
 
     this.toggle = function() {
-      openInfo(place);
+        openInfo(place);
+
+
     };
 
-    // this.marker.addListener('click', function() {
-    //   openInfo();
-    // });
 
-    function openInfo(place) {
-      google.maps.event.trigger(self.marker, 'click');
+     this.openInfo = function(place) {
+        google.maps.event.trigger(self.marker, 'click');
+
     }
+
 
 };
 
