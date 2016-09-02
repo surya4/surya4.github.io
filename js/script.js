@@ -148,7 +148,9 @@ var Attributes = function(value) {
 
     // event creating to pass the content string in info window
     this.marker.addListener('click', function() {
-
+      appViewModel.filteredList().forEach(function(place) {
+          place.marker.setAnimation(null);
+        });
       self.contentString = '<div class="info-window-content"><div class="title"><b>' + value.name + "</b></div>" +
           '<div class="content">' + self.address + "</div>" +
           '<div class="content">' + '<a href="' + self.URL + '">' + self.URL + '</a>' + "</div>" +
@@ -156,9 +158,7 @@ var Attributes = function(value) {
       self.infoWindow.setContent(self.contentString);
       self.marker.setAnimation(google.maps.Animation.BOUNCE);
       self.infoWindow.open(map, this);
-      appViewModel.filteredList().forEach(function(place) {
-          place.marker.setAnimation(null);
-        });
+
     });
 
     self.infoWindow.addListener('closeclick', function() {
@@ -168,8 +168,6 @@ var Attributes = function(value) {
 
     this.toggle = function() {
         openInfo(place);
-
-
     };
 
 
