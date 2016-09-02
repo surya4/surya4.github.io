@@ -1,7 +1,7 @@
 // global variable declaration
 'use strict';
 var map;
-// var appViewModel;
+ var appViewModel;
 
 // spliting up the foursquare url
 var fs = 'https://api.foursquare.com/v2/venues/search?client_id=' +
@@ -77,8 +77,8 @@ var Attributes = function(value) {
         var results = value.response.venues[0];
         var street = results.location.formattedAddress[0];
         var city = results.location.formattedAddress[1];
-        var url = self.URL;
-        var tele = self.phone;
+        // var url = self.URL;
+        // var tele = self.phone;
 
         if (results.url !== null && results.url !== undefined) {
             self.URL = results.url;
@@ -132,18 +132,18 @@ var Attributes = function(value) {
         return true;
     }, this);
 
-    //  var url = self.URL;
-    //   var linkHTML;
-    //   if (url) {
-      //  linkHTML = '<a href="' + self.URL + '">' + self.URL + '</a>';
+//      var url = self.URL;
+//       var linkHTML;
+//       if (url) {
+//        linkHTML = '<a href="' + self.URL + '">' + self.URL + '</a>';
 //       } else { linkHTML = 'No link is available.'; }
 //
 // console.log(self.URL);
 //       var tele = self.phone;
 //         var teleHTML;
 //         if (tele) {
-        //  teleHTML = '<a href="' + self.phone + '">' + self.phone + '</a>';
-        // } else { teleHTML = 'No phone no. is available.'; }
+//          teleHTML = '<a href="' + self.phone + '">' + self.phone + '</a>';
+//         } else { teleHTML = 'No phone no. is available.'; }
 
 
     // event creating to pass the content string in info window
