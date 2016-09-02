@@ -30,10 +30,16 @@ var placeArray = [{
     lat: 12.9376218,
     long: 77.6269792
 }, {
-    name: 'HDFC Bank ATM',
-    lat: 12.9386243,
-    long: 77.6304922
-}, {
+    name: 'Pearson India Education Services ',
+    lat: 12.9399321,
+    long: 77.6286004
+},
+{
+    name: 'Shilton Royale ',
+    lat: 12.9387769,
+    long: 77.629976
+},
+ {
     name: 'Food Affairs',
     lat: 12.9383949,
     long: 77.6304051
@@ -67,7 +73,7 @@ var Attributes = function(value) {
         value.long + '&query=\'' + value.name + '\'&limit=1';
 
     // puuling up data from foursquareURL
-    $.getJSON(fsurl).done(function(value) {
+    $.getJSON(fsurl, function(value) {
         var results = value.response.venues[0];
         if (results.url !== null && results.url !== undefined) {
             self.URL = results.url;
@@ -92,9 +98,11 @@ var Attributes = function(value) {
         }
         // self.phone = results.contact.phone;
         console.log(results.contact.phone);
-        if (venue.categories.shortName !== null && venue.categories.shortName !== undefined) {
-            self.category = venue.categories.shortName;
-        }
+        // if (venue.categories.shortName !== null && venue.categories.shortName !== undefined) {
+        //     self.category = venue.categories.shortName;
+        // }
+    }).fail(function(value){
+      alert("Page is not loading. Please check your Internet connection or try it later!");
     });
     // passing content to the infoWindow
     this.infoWindow = new google.maps.InfoWindow({
@@ -124,12 +132,17 @@ var Attributes = function(value) {
         return true;
     }, this);
 
+    var url = self.URL;
+      var linkHTML;
+      if (self.URL) {
+        linkHTML = '<a href="' + self.URL + '">' + self.URL + '</a>'
+      } else { linkHTML = 'No link is available.'; }
 
     // event creating to pass the content string in info window
     this.marker.addListener('click', function() {
         self.contentString = '<div class="info-window-content"><div class="title"><b>' + value.name + "</b></div>" +
-            '<div class="content"><a href="' + self.URL + '">' + self.URL + "</a></div>" +
             '<div class="content">' + self.address + "</div>" +
+            '<div class="content">' + '<a href="' + self.URL + '">' + self.URL + '</a>' + "</div>" +
             '<div class="content"><a href="tel:' + self.phone + '">' + self.phone + "</a></div></div>";
 
         self.infoWindow.setContent(self.contentString);
@@ -139,9 +152,22 @@ var Attributes = function(value) {
     });
 
     // puuling up info window after click on marker
-    this.toggle = function(place) {
-        google.maps.event.trigger(self.marker, 'click');
+    // this.toggle = function(place) {
+    //     google.maps.event.trigger(self.marker, 'click');
+    // };
+
+    this.toggle = function() {
+      openInfo(place);
     };
+
+    // this.marker.addListener('click', function() {
+    //   openInfo();
+    // });
+
+    function openInfo(place) {
+      google.maps.event.trigger(self.marker, 'click');
+    }
+
 };
 
 
