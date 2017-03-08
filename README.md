@@ -5,7 +5,7 @@
 2. Run index.html file to open the app.
              or
 ```html
-Run project online at : surya4/github.io
+Run project online at : surya4.github.io
 ```
 
 ## In the map, I have included :
