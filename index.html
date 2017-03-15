@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <title>Neighbourhood App</title>
-    <link rel="stylesheet" href="css/style.css" media="screen">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Trailer</title>
 
 
-</head>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>
-    <!-- shows app name and search box-->
-    <div class="search">
-        <h2>Neighbourhood App</h2>
-        <hr>
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="aasets/images/favicon.ico">
+  </head>
+  <body>
+<div class="wrapper">
+  <!-- name and navigation -->
+<section id="name-nav" class="">
+  <!-- name -->
+  <div id="name" class="">
+    <span class="logo-image"><img src="" alt=""></span>
+    <span class="logo-text"><p>Abra ka Dabra</p></span>
+
+  </div>
+  <!-- navigation -->
+  <nav id="navi" class="">
+
+  </nav>
+
+</section>
+<!-- search -->
+<section id="search" class="">
+  <!-- search-window -->
+  <div id="s-window" class="">
+    <input type="search" name="search" id="searchbox-input">
+    <input type="submit" place id="searchbox-submit" value="Search">
+
+  </div>
+</section>
+<!-- slider, description and trending -->
+<section id="slider-trend" class="">
+  <!-- slider box -->
+  <div id="slider-box" class="">
+<!-- slider -->
+    <div id="slider" class="">
+
+    </div>
+    <!-- description -->
+    <div id="descr" class="">
+
     </div>
 
-    <div class="app">
-        <!-- listing and description -->
-        <div class="list">
-            <input class="search-box" id="search-box" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'" />
-            <ul class="results" id="results" data-bind="foreach: filteredList">
-                <li class="place" id="place" data-bind="text: name, click: toggle"></li>
-            </ul>
-        </div>
-        <!-- map -->
-        <div id="map">
-        </div>
-    </div>
-    <!-- asynce and defere use to optimize the page -->
-    <script src='js/knockout-3.4.0.js'></script>
-    <script src='js/jquery.min.js'></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIa2Acp4uLWi7uPQ68UhbU1H0r3eGR1g&callback=initMap&libraries=places" onerror="errorHandling()"></script>
-    <script src='js/script.js'></script>
-</body>
+  </div>
+  <!-- trending box -->
+  <div id="trend" class="">
 
+  </div>
+</section>
+<!-- few more -->
+<section id="few-more" class="">
+  <!-- genre1 -->
+  <div id="action" class="">
+
+  </div>
+  <!-- genre2 -->
+  <div id="drama" class="">
+
+  </div>
+</section>
+
+</div> <!-- end of wrapper -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/assets/js/lib/jquery-3.1.1.min.js"></script> -->
+<script type="text/javascript" src="/asstets/js/app.js"></script>
+  </body>
 </html>
