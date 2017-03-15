@@ -1,7 +1,9 @@
 $(document).ready(function(){
-
-  $.getJSON('data.json', function(data){
-        console.log("data");
+    $("button").click(function(){
+        $.getJSON("data.json", function(result){
+            $.each(result, function(i, field){
+                $("div").append(field + " ");
+            });
+        });
     });
-
 });
