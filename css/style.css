@@ -1,0 +1,456 @@
+html,body,#container, #main-page{
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  font-family: "Lato", "Lucida Grande", "Tahoma", sans-serif;
+	font-size: 14px;
+	font-variant: normal;
+	font-weight: normal;
+  margin: 0;
+}
+
+
+#container{
+  background-color: #f2f2f2;
+
+}
+
+#main-page{
+  background-color: #191919;
+}
+
+#left-main{
+width: 40%;
+height: 100%;
+float: left;
+}
+
+#right-main{
+  width: 60%;
+  height: 100%;
+  float: right;
+}
+
+#right-main h3{
+  color: #f2f2f2;
+  padding-left: 20px;
+  word-spacing: -7px;
+  margin-top: 60%;
+  margin-bottom: 0;
+font-size: 74px;
+border-left: 4px solid #FFC815;
+text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+#lower-page{
+  width: 100%;
+  height: 100%;
+}
+
+#resume{
+width: 100%;
+height: 80%;
+margin-top: 5%;
+}
+
+
+#skills{
+width: 100%;
+height: 70%;
+}
+
+#projects{
+/*background-color: green;*/
+width: 100%;
+height: 142.5%;
+}
+
+#contacts{
+background-color: #191919;
+width: 100%;
+height: 70%;
+}
+
+#about-text{
+  /*background-color: brown;*/
+  width: 50%;
+  height: 100%;
+  float: left;
+
+}
+
+#edu-work{
+width: 50%;
+height: 100%;
+float: right;
+}
+
+.about-h{
+  padding-left: 15%;
+  height: 13%;
+}
+
+.about-p{
+padding-top: 6%;
+padding-left: 7%;
+padding-right: 7%;
+}
+
+h2{
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 43px;
+  font-weight: bold;
+  color: #191919;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sep1{
+  float: left;
+  background: #FFC815;
+  width: 70%;
+  height: 2px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.sep1:before{
+  content: '';
+  background: #FFC815;
+  width: 30%;
+  height: 4px;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+
+.about-p{
+
+}
+
+.edu-h{
+  padding-left: 15%;
+  height: 13%;
+}
+
+.edu-time {
+  padding-top: 3%;
+
+}
+
+
+/*.edu-time:before{
+position: relative;
+content: "";
+left: -2px;
+
+
+}*/
+
+
+.verticle-line{
+  position: relative;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+
+}
+
+.verticle-line:after{
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 0px;
+}
+
+.verticle-line:before{
+  content: "";
+  position: absolute;
+  left: 6px;
+  border-left: 0.5px solid #191919;
+  height: 100%;
+  z-index: -1;
+}
+
+.edu-time > .edu-title2 {
+  font-size: 10px;
+}
+
+.edu-tong {
+  padding-left: 3%;
+}
+
+h3 {
+  font-size: 0.8 em;
+  font-weight: 200;
+  margin-bottom: 0;
+}
+
+.fa-plus-square-o{
+  color: #FFC815;
+  background-color: white;
+}
+
+.title-h{
+  width: 92.5%;
+  height: 21%;
+  padding-left: 7.5%;
+}
+
+.sep2{
+  float: left;
+  background: #FFC815;
+  width: 40%;
+  height: 2px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.sep2:before{
+  content: '';
+  background: #FFC815;
+  width: 30%;
+  height: 4px;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+#skills > #skill-name{
+  width: 99%;
+  height: 77%;
+  padding-left: 1%;
+
+}
+
+#skill-lang{
+  width: 33%;
+  height: 100%;
+  float: left;
+}
+
+#skill-frame{
+  width: 34%;
+  height: 100%;
+  float: left;
+}
+
+#skill-db{
+  width: 33%;
+  height: 100%;
+  float: right;
+}
+
+#skill-name h3{
+  background-color: #FFC815;
+  float: left;
+  padding: 0.4em 0.6em;
+  color: #000;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.skill-head{
+  width: 100%;
+  height: 16%;
+}
+
+.skill-bar-box{
+  padding-top: 10%;
+width: 80%;
+padding-left: 5%;
+}
+
+.skill-bar-title{
+  float: left;
+  font-size: 15px;
+}
+
+.skill-bar-percent{
+float: right;
+font-size: 15px;
+padding-bottom: 6px;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+
+}
+
+.skill-bar-out{
+  background: #eee;
+  margin: 0 0 9% 0;
+  position: relative;
+  width: 100%;
+  display: block;
+  float: left;
+
+}
+
+.skill-bar-in{
+    background: #ffc815;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+}
+
+/* projects design part */
+
+#showcase {
+  width: 90%;
+  height: 100%;
+  margin: 0 5% 0 5%;
+}
+
+#proj-l {
+  background-color: ;
+  width: 50%;
+  height: 77%;
+  float: left;
+}
+
+#proj-r {
+  background-color: green;
+  width: 50%;
+  height: 77%;
+  float: right;
+}
+
+
+
+ /* fill here */
+.item-box{
+  width: 85%;
+  height: 33%;
+  /*background-color: blue;*/
+  margin-top: 10%;
+  -webkit-box-shadow: 0 0px 2.5px -1px #191919;
+       -moz-box-shadow: 0 0px 2.5px -1px #191919;
+            box-shadow: 0 0px 3px -2.5px #191919;
+}
+
+.proj-lr-1{
+  margin-top: 0;
+}
+
+.item-l{
+  margin-left: 10%;
+}
+.item-r{
+  margin-left: 5%;
+}
+
+.item-img{
+  width: 45%;
+  height: 100%;
+  float: left;
+  background-color: ;
+  -webkit-box-shadow: 0 0px 2.5px -1px #191919;
+       -moz-box-shadow: 0 0px 2.5px -1px #191919;
+            box-shadow: 0 0px 5px -1px #191919;
+}
+
+.item-img img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.item-exp{
+  width: 55%;
+  height: 100%;
+  float: right;
+  background-color: ;
+}
+
+/* contacts part */
+#contact-info{
+padding-top: 11%;
+}
+
+#find-me{
+padding-top: 3%;
+}
+
+#contact-info h4{
+  color: #fff;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 42%;
+}
+
+#find-me h4{
+  color: #fff;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 42%;
+}
+
+.contact-h:before{
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #ffc815;
+
+}
+
+#contacts li {
+  color: #707070;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  padding: 1% 0 0 40%;
+}
+
+.fa-envelope-o, .fa-home {
+    padding-right: 2%;
+    color: #ffc815;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+.footer-social{
+padding-top: 1%;
+  padding-left:42%;
+}
+
+
+#find-me ul li {
+  display: inline;
+  padding: 3% 2% 0 0;
+}
+.custom-icon{
+  padding:10px;
+  border:#ffc815 solid 1px;
+  -webkit-border-radius:1100%;
+  -moz-border-radius:100%;
+  -o-border-radius:100%;
+  border-radius:100%;
+  color:#ffc815;
+  text-align:center;
+  display:table-cell;
+  vertical-align:middle;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  -o-transition:.5s;
+  transition:.5s;
+}
+
+.custom-icon:hover {
+  background-color:#ffc815;
+  color: #191919;
+}
