@@ -331,14 +331,15 @@ padding-bottom: 6px;
   width: 85%;
   height: 33%;
   /*background-color: blue;*/
-  margin-top: 10%;
+  margin: 5% 0;
   -webkit-box-shadow: 0 0px 2.5px -1px #191919;
        -moz-box-shadow: 0 0px 2.5px -1px #191919;
             box-shadow: 0 0px 3px -2.5px #191919;
 }
 
-.proj-lr-1{
+.proj-lr-box{
   margin-top: 0;
+
 }
 
 .item-l{
@@ -352,22 +353,57 @@ padding-bottom: 6px;
   width: 45%;
   height: 100%;
   float: left;
-  background-color: ;
+background-color: yellow;
   -webkit-box-shadow: 0 0px 2.5px -1px #191919;
        -moz-box-shadow: 0 0px 2.5px -1px #191919;
             box-shadow: 0 0px 5px -1px #191919;
 }
 
 .item-img img {
+
   max-height: 100%;
   max-width: 100%;
 }
 
 .item-exp{
-  width: 55%;
+  width: 52%;
   height: 100%;
+  padding: 4% 1%;
   float: right;
-  background-color: ;
+
+}
+.item-name {
+letter-spacing: -0.07em;
+font-size: 1.4em;
+}
+.item-desc {
+font-size: 0.9em;
+font-weight: lighter;
+
+}
+
+.tags-box{
+  margin: 4% 0;
+}
+
+.item-exp span {
+ margin-right: 1%;
+}
+
+.item-stack{
+border: 1px solid #50a9d1;
+margin-right: 10px;
+font-weight: 500;
+width: auto;
+padding: 1.8% 4%;
+margin-top: 0.8em;
+display: inline-block;
+font-size: 0.9em;
+border-radius: 4px;
+}
+
+.link {
+border: 1px solid #86BE91;
 }
 
 /* contacts part */
