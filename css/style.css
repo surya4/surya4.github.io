@@ -318,7 +318,6 @@ padding-bottom: 6px;
 }
 
 #proj-r {
-  background-color: green;
   width: 50%;
   height: 77%;
   float: right;
@@ -353,7 +352,6 @@ padding-bottom: 6px;
   width: 45%;
   height: 100%;
   float: left;
-background-color: yellow;
   -webkit-box-shadow: 0 0px 2.5px -1px #191919;
        -moz-box-shadow: 0 0px 2.5px -1px #191919;
             box-shadow: 0 0px 5px -1px #191919;
