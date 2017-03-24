@@ -6,6 +6,10 @@ html,body,#container, #main-page{
 	font-variant: normal;
 	font-weight: normal;
   margin: 0;
+  padding: 0;
+  min-width: 1000px;
+min-height: 1000px;
+position:relative;
 }
 
 
@@ -28,6 +32,7 @@ float: left;
 #right-main{
   width: 60%;
   height: 100%;
+  padding-top: 30%;
   float: right;
 }
 
@@ -35,9 +40,8 @@ float: left;
   color: #f2f2f2;
   padding-left: 20px;
   word-spacing: -7px;
-  margin-top: 60%;
   margin-bottom: 0;
-font-size: 74px;
+font-size: 5em;
 border-left: 4px solid #FFC815;
 text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
@@ -66,8 +70,7 @@ height: 100%;
 #contacts{
 background-color: #191919;
 width: 100%;
-height: 11.5%;
-position: absolute;
+height: 11%;
 }
 
 #about-text{
@@ -398,6 +401,11 @@ border-radius: 4px;
 
 .link {
 border: 1px solid #86BE91;
+}
+
+.link a{
+  text-decoration: none;
+  color: #000;
 }
 
 /* contacts part */
