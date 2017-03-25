@@ -20,18 +20,18 @@ position:relative;
 
 #main-page{
   background-color: #333333;
-  height: 100%;
 }
 
-#left-main{
+/*#left-main{
 width: 40%;
 height: 100%;
 float: left;
-}
+}*/
 
 #right-main{
-  width: 60%;
-  height: 100%;
+  /*width: 60%;*/
+  /*height: 100%;*/
+  padding:10%;
   float: right;
 }
 

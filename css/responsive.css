@@ -1,15 +1,23 @@
-@media only screen and (min-width: 1170px) {
+@media only screen and (max-device-width: 1440px) {
 
 
 }
 
-@media only screen and (max-width: 600px) and (min-width: 400px) {
+/*tabs*/
+@media only screen and (max-device-width: 1024px) {
+
+
+}
+
+/* large screen mob*/
+@media only screen and (max-device-width: 767px) {
 
 
 
 }
 
-@media only screen and (max-width: 480px) {
+/*small screen mob*/
+@media only screen and (max-device-width: 480px) {
 
 
 
