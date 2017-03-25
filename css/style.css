@@ -7,8 +7,8 @@ html,body,#container, #main-page{
 	font-weight: normal;
   margin: 0;
   padding: 0;
-  min-width: 1000px;
-min-height: 1000px;
+  min-width: 769px;
+min-height: 769px;
 position:relative;
 }
 
@@ -32,7 +32,6 @@ float: left;
 #right-main{
   width: 60%;
   height: 100%;
-  padding-top: 30%;
   float: right;
 }
 
@@ -40,8 +39,9 @@ float: left;
   color: #f2f2f2;
   padding-left: 20px;
   word-spacing: -7px;
+  margin-top: 60%;
   margin-bottom: 0;
-font-size: 5em;
+font-size: 6em;
 border-left: 4px solid #FFC815;
 text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
@@ -70,7 +70,7 @@ height: 100%;
 #contacts{
 background-color: #191919;
 width: 100%;
-height: 11%;
+height: 12%;
 }
 
 #about-text{
