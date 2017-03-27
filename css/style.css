@@ -452,7 +452,7 @@ float: right;
   padding: 1% 0 0 2%;
 }
 
-.fa-envelope-o, .fa-home {
+.fa-envelope-o, .fa-home,.fa-globe {
     padding-right: 2%;
     color: #ffc815;
   }
