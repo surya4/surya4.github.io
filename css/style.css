@@ -332,9 +332,9 @@ padding-bottom: 6px;
   height: 33%;
   /*background-color: blue;*/
   margin: 5% 0;
-  -webkit-box-shadow: 0 0px 2.5px -1px #191919;
-       -moz-box-shadow: 0 0px 2.5px -1px #191919;
-            box-shadow: 0 0px 3px -2.5px #191919;
+  -webkit-box-shadow: 0 1px 7px 2px rgba(143,143,143,.5);
+       -moz-box-shadow: 0 1px 7px 2px rgba(143,143,143,.5);
+            box-shadow: 0 1px 7px 2px rgba(143,143,143,.5);
 }
 
 .proj-lr-box{
@@ -350,7 +350,7 @@ padding-bottom: 6px;
 }
 
 .item-img{
-  width: 40%;
+  width: 45%;
   height: 100%;
   float: left;
   -webkit-box-shadow: 0 0px 2.5px -1px #191919;
@@ -364,7 +364,7 @@ padding-bottom: 6px;
 }
 
 .item-exp{
-  width: 57%;
+  width: 52%;
   height: 100%;
   padding: 2% 1%;
   float: right;
