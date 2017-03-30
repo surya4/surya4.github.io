@@ -19,7 +19,7 @@ position:relative;
 }
 
 #main-page{
-  background-color: #333333;
+  background-color: #1f282e;
   width: 100%;
 }
 
@@ -69,7 +69,7 @@ height: 100%;
 }
 
 #contacts{
-background-color: #191919;
+background-color: #1f282e;
 width: 100vw;
 height: 7vw;
 }
@@ -332,6 +332,7 @@ padding-bottom: 6px;
   height: 33%;
   /*background-color: blue;*/
   margin: 5% 0;
+
   -webkit-box-shadow: 0 1px 7px 2px rgba(143,143,143,.5);
        -moz-box-shadow: 0 1px 7px 2px rgba(143,143,143,.5);
             box-shadow: 0 1px 7px 2px rgba(143,143,143,.5);
