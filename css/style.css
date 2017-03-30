@@ -12,6 +12,7 @@ min-height: 769px;
 position:relative;
 }
 
+/* #ffc815 converted to rgba(255,200,21,0.6) */
 
 #container{
   background-color: #f2f2f2;
@@ -43,7 +44,7 @@ float: left;
   margin-top: 60%;
   margin-bottom: 0;
 font-size: 6em;
-border-left: 4px solid #FFC815;
+border-left: 4px solid rgba(255,200,21,0.6);
 text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
 
@@ -112,7 +113,7 @@ h2{
 
 .sep1{
   float: left;
-  background: #FFC815;
+  background: rgba(255,200,21,0.6);
   width: 70%;
   height: 2px;
   position: relative;
@@ -121,7 +122,7 @@ h2{
 
 .sep1:before{
   content: '';
-  background: #FFC815;
+  background: rgba(255,200,21,0.6);
   width: 30%;
   height: 4px;
   position: absolute;
@@ -192,7 +193,7 @@ h3 {
 }
 
 .fa-plus-square-o{
-  color: #FFC815;
+  color: rgba(255,200,21,0.6);
   background-color: white;
 }
 
@@ -204,7 +205,7 @@ h3 {
 
 .sep2{
   float: left;
-  background: #FFC815;
+  background: rgba(255,200,21,0.6);
   width: 40%;
   height: 2px;
   position: relative;
@@ -213,7 +214,7 @@ h3 {
 
 .sep2:before{
   content: '';
-  background: #FFC815;
+  background: rgba(255,200,21,0.6);
   width: 30%;
   height: 4px;
   position: absolute;
@@ -223,7 +224,7 @@ h3 {
 
 #skills > #skill-name{
   width: 99%;
-  height: 77%;
+  height: 57%;
   padding-left: 1%;
 
 }
@@ -247,7 +248,7 @@ h3 {
 }
 
 #skill-name h3{
-  background-color: #FFC815;
+  background-color: rgba(255,200,21,0.6);
   float: left;
   padding: 0.4em 0.6em;
   color: #000;
@@ -295,7 +296,7 @@ padding-bottom: 6px;
 }
 
 .skill-bar-in{
-    background: #ffc815;
+    background: rgba(255,200,21,0.6);
     left: 0;
     position: absolute;
     top: 0;
@@ -442,7 +443,7 @@ float: right;
   left: 0;
   width: 60px;
   height: 2px;
-  background: #ffc815;
+  background: rgba(255,200,21,0.6);
 
 }
 
@@ -456,7 +457,7 @@ float: right;
 
 .fa-envelope-o, .fa-home,.fa-globe {
     padding-right: 2%;
-    color: #ffc815;
+    color: rgba(255,200,21,0.6);
   }
 
   ul {
@@ -474,12 +475,12 @@ padding: 1% 0 0 0.5%;
 }
 .custom-icon{
   padding:10px;
-  border:#ffc815 solid 1px;
+  border:rgba(255,200,21,0.6) solid 1px;
   -webkit-border-radius:1100%;
   -moz-border-radius:100%;
   -o-border-radius:100%;
   border-radius:100%;
-  color:#ffc815;
+  color:rgba(255,200,21,0.6);
   text-align:center;
   display:table-cell;
   vertical-align:middle;
@@ -490,6 +491,6 @@ padding: 1% 0 0 0.5%;
 }
 
 .custom-icon:hover {
-  background-color:#ffc815;
+  background-color:rgba(255,200,21,0.6);
   color: #333333;
 }
