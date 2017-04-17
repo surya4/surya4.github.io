@@ -329,7 +329,7 @@ padding-bottom: 6px;
 
  /* fill here */
 .item-box{
-  width: 85%;
+  width: 80%;
   height: 33%;
   /*background-color: blue;*/
   margin: 5% 0;
@@ -352,7 +352,7 @@ padding-bottom: 6px;
 }
 
 .item-img{
-  width: 45%;
+  width: 50%;
   height: 100%;
   float: left;
   -webkit-box-shadow: 0 0px 2.5px -1px #191919;
@@ -367,7 +367,7 @@ padding-bottom: 6px;
 }
 
 .item-exp{
-  width: 52%;
+  width: 47%;
   height: 100%;
   padding: 2% 1%;
   float: right;
